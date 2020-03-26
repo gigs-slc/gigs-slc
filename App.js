@@ -1,38 +1,138 @@
-import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import {
+  Image,
+} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' + 'Shake or press menu button for dev menu',
+
+
+
+import { HomeScreen, ProfileScreen } from './screens';
+import {RegisterScreen} from './auth';
+import {LoginScreen} from './auth';
+
+import { FontAwesome5 } from '@expo/vector-icons';
+
+
+const Tab = createBottomTabNavigator();
+
+const navOptionHandler = () => ({
+  headerShown: false
 });
 
-export default class App extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
-    );
+const StackHome = createStackNavigator();
+
+function HomeStack({navigation, route}) {
+  if (route.state && route.state.routeNames[route.state.index] === "HomeDetail" ) {
+    navigation.setOptions({tabBarVisible: false})
+  } else {
+    navigation.setOptions({tabBarVisible: true})
   }
+  return (
+    <StackHome.Navigator initialRouteName="Home">
+      <StackHome.Screen
+        name="Home"
+        component={HomeScreen}
+        options={navOptionHandler}
+      />
+    </StackHome.Navigator>
+  );
+}
+const StackProfile = createStackNavigator();
+
+function ProfileStack({navigation, route}) {
+  if (route.state && route.state.routeNames[route.state.index] === "ProfileDetail" ) {
+    navigation.setOptions({tabBarVisible: false})
+  } else {
+    navigation.setOptions({tabBarVisible: true})
+  }
+  return (
+    <StackProfile.Navigator initialRouteName="Profile">
+      <StackProfile.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={navOptionHandler}
+      />
+    </StackProfile.Navigator>
+  );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+
+
+
+
+
+
+
+
+
+
+
+function TabNavigator() {
+  return (
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
+
+          if (route.name === 'Home') {
+            iconName = focused
+              ? 'crosshairs'
+              : 'crosshairs'
+          } else if (route.name === 'Profile') {
+            iconName = focused
+              ? 'crosshairs'
+              : 'crosshairs'
+          }
+
+          // You can return any component that you like here!
+          return <FontAwesome5 name={iconName} size={size} color={color} 
+            resizeMode="contain" style={{marginTop:6}} />;
+          },
+      })} 
+      tabBarOptions={{
+        activeTintColor: 'blue',
+        inactiveTintColor: 'gray',
+        style:{backgroundColor:'white',}
+      }}
+    >
+      <Tab.Screen name="Home" component={HomeStack} />
+      <Tab.Screen name="Profile" component={ProfileStack} />
+  
+    
+    </Tab.Navigator>
+  );
+}
+
+
+
+const StackApp = createStackNavigator()
+
+export default function App() {
+  return <NavigationContainer>
+<StackApp.Navigator initialRouteName="Login">
+      <StackApp.Screen
+        name="Home"
+        component={TabNavigator}
+        options={navOptionHandler}
+      />
+      <StackApp.Screen
+        name="Login"
+        component={LoginScreen}
+        options={navOptionHandler}
+      />
+       <StackApp.Screen
+        name="Register"
+        component={RegisterScreen}
+        options={navOptionHandler}
+      />
+      <StackApp.Screen
+      name="Profile"
+      component={ProfileScreen}
+      options={navOptionHandler}
+      />
+    </StackApp.Navigator>
+  </NavigationContainer>;
+}
