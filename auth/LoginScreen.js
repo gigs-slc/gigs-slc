@@ -14,7 +14,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input } from 'react-native-elements';
 
-// import firebase from '../../firebase';
+import firebase from '../firebase';
 
 
 export class LoginScreen extends Component {
