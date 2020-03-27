@@ -10,7 +10,7 @@ import {
   Image
 } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
-// import firebase from '../../firebase';
+import firebase from '../firebase';
 
 
 export class RegisterScreen extends Component {
