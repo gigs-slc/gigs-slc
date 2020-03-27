@@ -12,7 +12,7 @@ export class HomeScreen extends Component {
 
         </View>
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Home screen!</Text>
+            <Text style={{color:'white'}}>Hi George!</Text>
           </View>
         </SafeAreaView>
       );
