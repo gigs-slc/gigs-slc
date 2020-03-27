@@ -10,7 +10,7 @@ import {
   Image
 } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
-
+import Images from '../Images/landing.png'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input } from 'react-native-elements';
 
@@ -39,14 +39,40 @@ export class LoginScreen extends Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
+      <Image
+        style={{  position: 'absolute',
+    left: 0,
+    top: 0,
+    bottom: 0,
+    right: 0,
+    resizeMode: 'cover',
+    width: null,
+    height: null,}}
+        resizeMode='cover'
+        source={Images}
+        blurRadius={1}
+      />
         <View style={styles.welcomeContainer}>
 
 
         </View>
-        <Text style={styles.login}>SIGN IN</Text>
+        <Text style={styles.login}>LOGIN</Text>
         <View style={{ width: "85%" }}>
           {/* <FontAwesome5 name='user' size={24} color='#fff' /> */}
-
+          <View style={{flexDirection:'row', justifyContent:'space-between'}}>
+          <TouchableOpacity style={styles.userBtn}>
+            <Text style={styles.btnText}>
+              <FontAwesome5 name='facebook-f' size={16} color='#fff' /> 
+              {" "}{" "}{" "}Facebook
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.userBtn3}>
+            <Text style={styles.btnText}>
+              <FontAwesome5 name='twitter' size={16} color='#fff' /> 
+              {" "}{" "}{" "}twitter
+            </Text>
+          </TouchableOpacity>
+          </View>
           <TextInput
             style={styles.input}
             placeholder='Email'
@@ -72,20 +98,15 @@ export class LoginScreen extends Component {
         </View>
         <View style={styles.btnContainer}>
           <TouchableOpacity
-            style={styles.userBtn}
+            style={styles.userBtn1}
             onPress={() => {
               this.signInUser(this.state.email, this.state.password),
               (this.props.navigation.navigate('Home'))
             }}
           >
-            <Text style={styles.btnText}>sign in</Text>
+            <Text style={styles.btnText}>LOGIN</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.userBtn}>
-            <Text style={styles.btnText}>
-              <FontAwesome5 name='facebook-f' size={24} color='#fff' /> Sign In
-              With Facebook
-            </Text>
-          </TouchableOpacity>
+        
         </View>
         <View style={{ padding: 30, flexDirection: "row" }}>
           <Text style={{ color: "#fff" }}>Don't have an account?</Text>
@@ -94,7 +115,7 @@ export class LoginScreen extends Component {
               this.props.navigation.navigate('Register')
             }
           >
-            <Text style={{ color: "#3b5998" }}> SIGN UP</Text>
+            <Text style={{ color: "#288AFD" }}> SIGN UP</Text>
           </TouchableOpacity>
 
         </View>
@@ -128,7 +149,24 @@ const styles = StyleSheet.create({
     padding: 15,
     marginBottom: 50,
     borderRadius: 30,
-    overflow: "hidden"
+    overflow: "hidden",
+    width:'45%'
+  },
+  userBtn3: {
+    backgroundColor: "#38A1F3",
+    padding: 15,
+    marginBottom: 50,
+    borderRadius: 30,
+    overflow: "hidden",
+    width:'45%'
+  },
+  userBtn1: {
+    backgroundColor: "#288AFD",
+    padding: 15,
+    marginBottom: 50,
+    borderRadius: 30,
+    overflow: "hidden",
+    
   },
   btnContainer: {
     width: "85%"
