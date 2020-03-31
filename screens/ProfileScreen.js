@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, SafeAreaView, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import {CustomHeader} from './index';
-
+import { Avatar } from 'react-native-paper';
 
 export class ProfileScreen extends Component {
   render() {
@@ -9,7 +9,8 @@ export class ProfileScreen extends Component {
       <SafeAreaView style={styles.container}>
           <CustomHeader title="Profile" navigation={this.props.navigation} isHome={true}/>
           <View style={styles.welcomeContainer}>
-
+          <Avatar.Image size={184} source={require('../assests/griffin.png')} />
+          <Text style={{color:'white', fontSize:26, marginTop:15}}> Griffin Huth </Text>
         </View>
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
           <Text style={{color:'white'}}>Hi George!</Text>

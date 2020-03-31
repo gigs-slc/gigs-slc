@@ -39,7 +39,7 @@ export class LoginScreen extends Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-      <Image
+      {/* <Image
         style={{  position: 'absolute',
     left: 0,
     top: 0,
@@ -51,12 +51,12 @@ export class LoginScreen extends Component {
         resizeMode='cover'
         source={Images}
         blurRadius={1}
-      />
+      /> */}
         <View style={styles.welcomeContainer}>
 
 
         </View>
-        <Text style={styles.login}>LOGIN</Text>
+        <Text><FontAwesome5 name='couch' size={126} color='#288AFD' /> </Text>
         <View style={{ width: "85%" }}>
           {/* <FontAwesome5 name='user' size={24} color='#fff' /> */}
           <View style={{flexDirection:'row', justifyContent:'space-between'}}>
