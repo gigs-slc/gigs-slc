@@ -9,7 +9,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 
 
-import { HomeScreen, ProfileScreen } from './screens';
+import { HomeScreen, ProfileScreen, AlertsScreen } from './screens';
 import {RegisterScreen} from './auth';
 import {LoginScreen} from './auth';
 
@@ -58,6 +58,24 @@ function ProfileStack({navigation, route}) {
     </StackProfile.Navigator>
   );
 }
+const StackAlerts = createStackNavigator();
+
+function AlertsStack({navigation, route}) {
+  if (route.state && route.state.routeNames[route.state.index] === "AlertsDetail" ) {
+    navigation.setOptions({tabBarVisible: false})
+  } else {
+    navigation.setOptions({tabBarVisible: true})
+  }
+  return (
+    <StackAlerts.Navigator initialRouteName="Alerts">
+      <StackAlerts.Screen
+        name="Alerts"
+        component={AlertsScreen}
+        options={navOptionHandler}
+      />
+    </StackAlerts.Navigator>
+  );
+}
 
 
 
@@ -85,6 +103,10 @@ function TabNavigator() {
             iconName = focused
               ? 'crosshairs'
               : 'crosshairs'
+          } else if (route.name === 'Alerts'){
+            iconName= focused
+            ? 'bell'
+            : 'bell'
           }
 
           // You can return any component that you like here!
@@ -98,8 +120,9 @@ function TabNavigator() {
         style:{backgroundColor:'white',}
       }}
     >
+     <Tab.Screen name="Profile" component={ProfileStack} />
       <Tab.Screen name="Home" component={HomeStack} />
-      <Tab.Screen name="Profile" component={ProfileStack} />
+      <Tab.Screen name="Alerts" component={AlertsStack} />
   
     
     </Tab.Navigator>
@@ -112,7 +135,7 @@ const StackApp = createStackNavigator()
 
 export default function App() {
   return <NavigationContainer>
-<StackApp.Navigator initialRouteName="Login">
+<StackApp.Navigator initialRouteName="Home">
       <StackApp.Screen
         name="Home"
         component={TabNavigator}
@@ -131,6 +154,11 @@ export default function App() {
       <StackApp.Screen
       name="Profile"
       component={ProfileScreen}
+      options={navOptionHandler}
+      />
+        <StackApp.Screen
+      name="Alerts"
+      component={AlertsScreen}
       options={navOptionHandler}
       />
     </StackApp.Navigator>
