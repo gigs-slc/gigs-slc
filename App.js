@@ -97,12 +97,12 @@ function TabNavigator() {
 
           if (route.name === 'Home') {
             iconName = focused
-              ? 'crosshairs'
-              : 'crosshairs'
+              ? 'home'
+              : 'home'
           } else if (route.name === 'Profile') {
             iconName = focused
-              ? 'crosshairs'
-              : 'crosshairs'
+              ? 'user'
+              : 'user'
           } else if (route.name === 'Alerts'){
             iconName= focused
             ? 'bell'
