@@ -31,15 +31,15 @@ export class CustomHeader extends Component {
               }}
               onPress={() => navigation.goBack()}
             >
-              {/* <Image
-                style={{ width: 30, height: 30 }}
-                source={IMAGE.ICON_BACK}
+              <Image
+                style={{ width: 30, height: 30, marginLeft:10 }}
+                source={require('../Images/arrow.png')} 
                 resizeMode="contain"
-              /> */}
+              />
             </TouchableOpacity>
           )}
         </View>
-        <View style={{ flex: 1, justifyContent: 'center', height: 50,}}>
+        <View style={{ flex: 1.5, justifyContent: 'center', height: 50,}}>
           <Text style={{ textAlign: 'center', fontSize: 32, color: 'white' }}>
             {title}
           </Text>

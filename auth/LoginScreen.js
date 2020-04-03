@@ -10,9 +10,10 @@ import {
   Image
 } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
-import Images from '../Images/landing.png'
+import Images from '../Images/HS.png'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input } from 'react-native-elements';
+
 
 import firebase from '../firebase';
 
@@ -56,7 +57,8 @@ export class LoginScreen extends Component {
 
 
         </View>
-        <Text><FontAwesome5 name='couch' size={126} color='#288AFD' /> </Text>
+        <Image style={{width:265, height:265}}source={Images} />
+        
         <View style={{ width: "85%" }}>
           {/* <FontAwesome5 name='user' size={24} color='#fff' /> */}
           <View style={{flexDirection:'row', justifyContent:'space-between'}}>

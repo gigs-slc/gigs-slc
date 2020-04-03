@@ -8,10 +8,18 @@
     "sdkVersion": "36.0.0",
     "version": "1.0.0",
     "entryPoint": "node_modules/expo/AppEntry.js",
+    "userInterfaceStyle": "automatic",
+        "ios": {
+          "userInterfaceStyle": "light"
+        },
+        "android": {
+          "userInterfaceStyle": "dark"
+        },
     "platforms": [
       "ios",
       "android",
       "web"
     ]
+    
   }
 }

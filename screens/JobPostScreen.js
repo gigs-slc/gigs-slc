@@ -1,22 +1,41 @@
 import React, { Component } from 'react';
-import { Text, View, SafeAreaView, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, SafeAreaView, TextInput, Button } from 'react-native'
 import {CustomHeader} from './index';
 import { Avatar } from 'react-native-paper';
 
-export class ProfileScreen extends Component {
+export class JobPostScreen extends Component {
 
   
   render() {
     return (
       <SafeAreaView style={styles.container}>
-          <CustomHeader title="Profile" navigation={this.props.navigation} isHome={true}/>
-          <View style={styles.welcomeContainer}>
-          <Avatar.Image size={184} source={require('../assests/griffin.png')} />
-          <Text style={{color:'white', fontSize:26, marginTop:15}}> Griffin Huth </Text>
-        </View>
-          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Text style={{color:'white'}}>Hi George!</Text>
-          </View>
+          <CustomHeader title="Post a Job" navigation={this.props.navigation} isHome={false}/>
+          <TextInput
+                style={{height: 40, borderRadius: 5, backgroundColor: '#969696', marginTop: 5, padding: 5, color: 'white'}}
+                placeholder='Job Title'
+                placeholderTextColor='#262626'
+              />
+               <TextInput
+                style={{height: 40, borderRadius: 5, backgroundColor: '#969696', marginTop: 5, padding: 5, color: 'white'}}
+                placeholder='Budget'
+                placeholderTextColor='#262626'
+              />
+               <TextInput
+                style={{height: 40, borderRadius: 5, backgroundColor: '#969696', marginTop: 5, padding: 5, color: 'white'}}
+                placeholder='Amount of People'
+                placeholderTextColor='#262626'
+              />
+               <TextInput
+                style={{height: 100, backgroundColor: '#969696', marginTop: 5, borderRadius: 5, padding: 5, color: 'white'}}
+                placeholder='Job Description'
+                placeholderTextColor='#262626'
+                multiline={true}
+              />
+              <Button 
+                title='Submit'
+                color='white'
+                style={{backgroundColor:'#969696'}}
+                />
         </SafeAreaView>
       );
   }
