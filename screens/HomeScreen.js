@@ -4,6 +4,7 @@ import {CustomHeader} from './index';
 
 
 export class HomeScreen extends Component {
+
   render() {
     return (
       <SafeAreaView style={styles.container}>
@@ -12,6 +13,16 @@ export class HomeScreen extends Component {
 
         </View>
         <View style={styles.container}>
+        <View>
+          <TouchableOpacity
+           style={styles.Job}
+           onPress={() =>
+                  this.props.navigation.navigate('Jobs')
+                }>
+            <Text style={{color:'white'}}>Post A Job</Text>
+          </TouchableOpacity>
+
+        </View>
             <View style={styles.container1}>
               <TouchableOpacity 
                 style={styles.button}
@@ -125,6 +136,17 @@ button: {
   flexDirection: 'row',
   alignItems: 'center',
 
+},
+Job: {
+  width: '20%',
+  justifyContent: 'center',
+  backgroundColor: 'blue',
+  borderRadius: 8,
+  marginBottom: 8,
+  height: 20,
+  flexDirection: 'row',
+  alignItems: 'center',
+  
 },
 question: {
   backgroundColor: "transparent",

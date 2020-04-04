@@ -9,7 +9,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 
 
-import { HomeScreen, ProfileScreen, AlertsScreen } from './screens';
+import { HomeScreen, ProfileScreen, AlertsScreen, JobPostScreen } from './screens';
 import {RegisterScreen} from './auth';
 import {LoginScreen} from './auth';
 
@@ -77,6 +77,24 @@ function AlertsStack({navigation, route}) {
   );
 }
 
+const StackJobs = createStackNavigator();
+
+function JobsStack({navigation, route}) {
+  if (route.state && route.state.routeNames[route.state.index] === "JobsDetail" ) {
+    navigation.setOptions({tabBarVisible: false})
+  } else {
+    navigation.setOptions({tabBarVisible: true})
+  }
+  return (
+    <StackJobs.Navigator initialRouteName="Jobs">
+      <StackJobs.Screen
+        name="Jobs"
+        component={JobPostScreen}
+        options={navOptionHandler}
+      />
+    </StackJobs.Navigator>
+  );
+}
 
 
 
@@ -159,6 +177,11 @@ export default function App() {
         <StackApp.Screen
       name="Alerts"
       component={AlertsScreen}
+      options={navOptionHandler}
+      />
+         <StackApp.Screen
+      name="Jobs"
+      component={JobPostScreen}
       options={navOptionHandler}
       />
     </StackApp.Navigator>
