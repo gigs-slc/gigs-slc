@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, SafeAreaView, TextInput, Button } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View, SafeAreaView, TextInput,  } from 'react-native'
 import {CustomHeader} from './index';
-import { Avatar } from 'react-native-paper';
+
+import { Button } from 'react-native-elements'
+
 
 export class JobPostScreen extends Component {
 
@@ -11,31 +13,44 @@ export class JobPostScreen extends Component {
       <SafeAreaView style={styles.container}>
           <CustomHeader title="Post a Job" navigation={this.props.navigation} isHome={false}/>
           <TextInput
-                style={{height: 40, borderRadius: 5, backgroundColor: '#969696', marginTop: 5, padding: 5, color: 'white'}}
+                style={{height: 40, borderRadius: 5, backgroundColor: '#969696', marginTop: 25, padding: 5, color: 'white'}}
                 placeholder='Job Title'
-                placeholderTextColor='#262626'
+                placeholderTextColor='black'
               />
                <TextInput
-                style={{height: 40, borderRadius: 5, backgroundColor: '#969696', marginTop: 5, padding: 5, color: 'white'}}
-                placeholder='Budget'
-                placeholderTextColor='#262626'
+                style={{height: 40, borderRadius: 5, backgroundColor: '#969696', marginTop: 25, padding: 5, color: 'white'}}
+                placeholder='Full Name'
+                placeholderTextColor='black'
               />
                <TextInput
-                style={{height: 40, borderRadius: 5, backgroundColor: '#969696', marginTop: 5, padding: 5, color: 'white'}}
-                placeholder='Amount of People'
-                placeholderTextColor='#262626'
+                style={{height: 40, borderRadius: 5, backgroundColor: '#969696', marginTop: 25, padding: 5, color: 'white'}}
+                placeholder='Job Date'
+                placeholderTextColor='black'
               />
+              <TextInput
+                style={{height: 40, borderRadius: 5, backgroundColor: '#969696', marginTop: 25, padding: 5, color: 'white'}}
+                placeholder='What is your budget?'
+                placeholderTextColor='black'
+              />
+              <TextInput
+                style={{height: 40, borderRadius: 5, backgroundColor: '#969696', marginTop: 25, padding: 5, color: 'white'}}
+                placeholder='Job Type'
+                placeholderTextColor='black'
+              />
+             
                <TextInput
-                style={{height: 100, backgroundColor: '#969696', marginTop: 5, borderRadius: 5, padding: 5, color: 'white'}}
-                placeholder='Job Description'
-                placeholderTextColor='#262626'
+                style={{height: 150, backgroundColor: '#969696', marginTop: 25, borderRadius: 5, padding: 5, color: 'white'}}
+                placeholder='Additional Details'
+                placeholderTextColor='black'
                 multiline={true}
               />
+              <View>
               <Button 
-                title='Submit'
+                title='Post your Job!'
                 color='white'
-                style={{backgroundColor:'#969696'}}
+                buttonStyle={{backgroundColor:'#0053A7', marginTop:150, width:'65%', borderRadius:20, marginLeft:'18%', height:70  }}
                 />
+                </View>
         </SafeAreaView>
       );
   }
